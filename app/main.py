@@ -408,7 +408,7 @@ def init_state():
         "history":         [],
         # Profile
         "profile_name":    "Srijan Kundu Chowdhury",
-        "profile_company": "AtliQ",
+        "profile_company": "Lorem Ipsum Technology",
         "profile_role":    "Software Developer Engineer",
         "profile_skills":  "Python, Machine Learning, Data Science, Cloud, APIs",
         "profile_exp":     "1+ years",
