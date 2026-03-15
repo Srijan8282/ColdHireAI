@@ -474,7 +474,7 @@ with st.sidebar:
     <div class="sb-stat">
         <div style="font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">Session</div>
         <div class="sb-stat-row">
-            <span class="sb-stat-label">Emails generated</span>
+            <span class="sb-stat-label">Emails generated Now</span>
             <span class="sb-stat-val">{st.session_state.gen_count}</span>
         </div>
         <div class="sb-stat-row" style="margin-bottom:0">

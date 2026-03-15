@@ -20,4 +20,8 @@ class Portfolio:
     def query_links(self, skills):
         if not skills:
             return []
+        # Remove None, empty strings, non-strings
+        skills = [str(s).strip() for s in skills if s and str(s).strip()]
+        if not skills:
+            return []
         return self.collection.query(query_texts=skills, n_results=2).get('metadatas', [])
