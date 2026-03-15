@@ -463,7 +463,7 @@ with st.sidebar:
         <div style="background:rgba(34,211,238,.06);border:1px solid rgba(34,211,238,.2);
              border-radius:9px;padding:10px 12px;">
             <div style="font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--cyan);margin-bottom:2px;">
-                {job.get('role','N/A')[:32]}
+                {(job.get('role') or 'N/A')[:32]}
             </div>
             <div style="font-size:.75rem;color:var(--muted);">{job.get('company','') or ''}</div>
         </div>
@@ -684,7 +684,7 @@ def page_generator():
              -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:18px;">
              ✅ Generated Emails</div>""", unsafe_allow_html=True)
 
-        tab_labels = [f"Email {i+1} — {e['job'].get('role','Role')[:26]}"
+        tab_labels = [f"Email {i+1} — {(e['job'].get('role') or 'Role')[:26]}"
                       for i, e in enumerate(st.session_state.emails)]
         tabs = st.tabs(tab_labels)
 
@@ -694,7 +694,7 @@ def page_generator():
                 mail = entry["email"]
 
                 skills_html = " ".join(f'<span class="skill-pill">{s}</span>'
-                                       for s in job.get("skills", [])[:14])
+                                       for s in (job.get("skills") or [])[:14])
                 loc  = job.get("location") or "N/A"
                 sal  = job.get("salary")   or "Not listed"
                 co   = job.get("company")  or "N/A"
@@ -757,7 +757,7 @@ def page_chatbot():
     st.markdown(f"""
     <div class="mode-bar">
         <div class="mode-btn {m_gen}" id="mode_generic">🌐 General Assistant</div>
-        <div class="mode-btn {m_job}" id="mode_job">{'🎯 Job: ' + (st.session_state.jobs[st.session_state.active_job_idx].get('role','N/A')[:22] if has_job else 'No job loaded') }</div>
+        <div class="mode-btn {m_job}" id="mode_job">{'🎯 Job: ' + ((st.session_state.jobs[st.session_state.active_job_idx].get('role') or 'N/A')[:22] if has_job else 'No job loaded') }</div>
     </div>
     """, unsafe_allow_html=True)
 
