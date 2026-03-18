@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide",
     page_title="ColdHire AI",
     page_icon="❄️",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="auto",
 )
 
 #-----------------------
@@ -338,6 +338,7 @@ hr { border-color: var(--border) !important; margin:22px 0 !important; }
     background:linear-gradient(90deg,var(--cyan),var(--indigo));
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
 }
+
 /* Force input+button on same line */
 [data-testid="stTextInput"] {
     margin-bottom: 0 !important;
@@ -358,6 +359,9 @@ hr { border-color: var(--border) !important; margin:22px 0 !important; }
     color: #070b12 !important;
     border-color: transparent !important;
     box-shadow: 0 4px 22px rgba(34,211,238,.28) !important;
+}
+[data-testid="stSidebarCollapseButton"] {
+    display: none !important;
 }
             
 /* ── Tip chips ── */
